@@ -33,6 +33,7 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
   position: relative;
+  height: 100%; /* Añade esto para que ocupe todo el alto del header */
 }
 
 /* Centramos el logo con posición absoluta */
@@ -41,12 +42,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: center; /* Centrado en su celda de grid */
+  justify-self: center;
+  padding: 5px 0; /* Añade un poco de padding si es necesario */
 }
 
 .logo img {
-  height: 100%; /* Toma el 100% del alto del contenedor .logo */
-  max-height: 5rem; /* Nunca mayor al alto del header */
+  height: 80%; /* Reduce ligeramente para que quepa bien */
+  max-height: 4.5rem;
   width: auto;
   object-fit: contain;
 }
@@ -55,6 +57,8 @@ body {
   justify-self: end;
   padding: 5px;
   gap: 15px;
+  align-items: center; /* Centra verticalmente los botones */
+  height: 100%; /* Ocupa todo el alto disponible */
 }
 
 .boton {
@@ -90,12 +94,12 @@ body {
 
 /* MENÚ PRINCIPAL HORIZONTAL */
 .menu-horizontal {
-  list-style: none; /* Quita los bullets */
-  display: flex; /* Muestra en fila horizontal */
-  /*justify-content: space-around; /* Espaciado uniforme entre elementos */
-  /*justify-content: flex-start;*/
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
+  height: 100%; /* Ocupa todo el alto disponible */
+  align-items: center; /* Centra los items verticalmente */
 }
 
 /* ENLACES DEL MENÚ */
@@ -119,6 +123,7 @@ body {
   padding: 0;
   margin: 0;
   width: 12rem; /* Ancho del submenú */
+  height: auto;
 }
 
 .menu-horizontal li:hover .menu-vertical {
@@ -137,19 +142,19 @@ body {
 }
 
 /* SECCIÓN nosotros */
-.nosotros, .informacion-app {
+.nosotros, .informacion-app, .inicio {
   padding-top: 6rem; /* Espacio superior para evitar que el menú tape el contenido */
   padding-bottom: 3rem; /* Espaciado inferior */
   padding-left: 2rem; /* Espaciado lateral izquierdo */
   padding-right: 2rem; /* Espaciado lateral derecho */
-  background-color: #f9f9f9; /* Fondo suave */
+  background-color: #f1f1f1; /* Fondo suave */
   color: #333; /* Texto gris oscuro legible */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.nosotros h2 , .informacion-app h2 {
+.nosotros h2 , .informacion-app h2, .inicio h2{
   font-size: 2rem; /* Tamaño de título */
   text-align: center;
   margin-bottom: 2rem;
@@ -159,7 +164,7 @@ body {
 
 
 /* CONTENEDOR DE IMAGEN Y TEXTO */
-.nosotros-contenido , .sobre-la-app-contenido {
+.nosotros-contenido , .sobre-la-app-contenido, .inicio-container {
   display: flex; /* Flexbox para organizar en fila */
   flex-direction: row; /* Elementos uno al lado del otro */
   gap: 2rem; /* Espacio entre imagen y texto */
@@ -168,7 +173,7 @@ body {
   width: 80%;
 }
 .vision-mision {
-  background-color: #f9f9f9; /* Fondo suave */
+  background-color: #f1f1f1; /* Fondo suave */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -184,8 +189,8 @@ body {
   padding: 0px;
   box-sizing: border-box;
   position: relative;
+  background-color: white;
 }
-
 .top-container {
   padding-top: 30px;
   position: relative;
@@ -219,18 +224,29 @@ body {
   color: #333;
 }
 
-.about-team {
-    background-color: #f9f9f9; /* Fondo suave */
-
+.about-team, .about-product {
+  background-color: #f1f1f1; /* Fondo suave */
   text-align: center;
   padding: 50px 20px;
 }
+
+.video-team, .video-product {
+  max-width: 800px; /* Ancho máximo del video */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+iframe{
+  width: 100%; /* Ancho completo del contenedor */
+  height: 450px; /* Altura fija para el video */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+}
 /* IMAGEN */
-.nosotros-imagen, .sobre-la-app-imagen {
+.nosotros-imagen, .sobre-la-app-imagen, .inicio-imagen {
   flex: 0.5; /* Toma la mitad del espacio */
 }
 
-.nosotros-imagen img, .sobre-la-app-imagen img {
+.nosotros-imagen img, .sobre-la-app-imagen img, .inicio-imagen img {
   width: 100%; /* Ocupa el ancho completo del contenedor */
   height: auto; /* Mantiene la proporción */
   border-radius: 0.5rem; /* Bordes redondeados */
@@ -238,13 +254,13 @@ body {
 }
 
 /* TEXTO */
-.nosotros-texto , .sobre-la-app-texto {
+.nosotros-texto , .sobre-la-app-texto, .inicio-contenido {
   flex: 1; /* Ocupa la otra mitad del espacio */
   font-size: 1rem; /* Tamaño base de texto */
   line-height: 1.6; /* Altura de línea para mejor lectura */
 }
 
-.nosotros-texto p + p  , .sobre-la-app-texto p + p {
+.nosotros-texto p + p  , .sobre-la-app-texto p + p, .inicio-contenido p + p {
   margin-top: 1rem; /* Espacio entre párrafos */
 }
 
@@ -271,24 +287,42 @@ footer {
 
   .menu-horizontal.active {
     display: flex; /* Mostrar menú al activar la clase */
+    height: auto;
   }
 
   .menu-horizontal li {
     border-bottom: 1px solid #ccc; /* Líneas separadoras */
   }
 
-  .nosotros-contenido, .sobre-la-app-contenido {
-    flex-direction: column; /* Apilar imagen y texto en móvil */
+  .nosotros-contenido,
+  .sobre-la-app-contenido,
+  .inicio-container {
+    flex-direction: column;
     text-align: center;
   }
 
-  .nosotros-imagen img , .sobre-la-app-imagen img {
-    width: 90%; /* Reduce tamaño para pantallas pequeñas */
+  .nosotros-imagen img,
+  .sobre-la-app-imagen img,
+  .inicio-imagen img {
+    width: 90%;
     margin: 0 auto;
   }
 
-  .nosotros-texto , .sobre-la-app-texto {
+  
+
+  .nosotros-texto , .sobre-la-app-texto, .inicio-contenido {
     font-size: 1.1rem;
+
+  }
+  .inicio-contenido {
+    text-align: center; /* Centra todo el contenido (texto y botón) */
+  }
+
+  .boton.iniciar-aqui {
+    width: 80%; /* Ocupa el 80% del contenedor */
+    max-width: 250px; /* Máximo ancho */
+    margin: 20px auto; /* Centrado horizontal con margen vertical */
+    display: block; /* Para que ocupe su propia línea */
   }
 }
 /* SECCIÓN CONTÁCTANOS */
@@ -299,6 +333,8 @@ footer {
   padding-right: 2rem;
   background-color: #f1f1f1;
   color: #333;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .contacto h2 {
@@ -383,4 +419,208 @@ button[type="submit"]:hover {
   .mensaje-enviado {
     text-align: center;
   }
+}
+
+.nuestras-redes{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+
+.redes-titulo{
+  font-size: 30px;
+
+}
+
+.redes-espacio{
+  display: flex;
+  gap: 50px ;
+  padding: 0 50px;
+}
+.red-container{
+  width: auto;
+  height: 100px;
+}
+
+.red-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.afiliados{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+.afiliados-informacion h2{
+  font-size: 30px;
+}
+
+.afiliados-informacion p{
+  font-size: 20px;
+  text-align: center;
+  max-width: 600px; /* Limita el ancho del párrafo */
+}
+
+.afiliados-logo-space{
+  display: flex;
+  gap: 50px ;
+  padding: 0 50px;
+
+}
+
+.afiliados-logo{
+  width: auto;
+  height: 200px;
+}
+.afiliados-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.obtencion{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+.obtencion-informacion{
+  padding: 20px 0px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.obtencion-informacion h2{
+  font-size: 30px;
+}
+.obtencion-informacion p{
+  font-size: 20px;
+  text-align: center;
+  max-width: 600px; /* Limita el ancho del párrafo */
+}
+.obtencion-informacion h1{
+  font-size: 25px;
+}
+.obtener-afiliacion, .iniciar-aqui{
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #aa0303;
+  color: white;
+}
+
+.frase-inicio {
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.beneficios{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+.beneficios h2{
+  font-size: 30px;
+}
+
+.beneficios-container{
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 0 50px; /* Espacio lateral */
+}
+
+.beneficio{
+  background-color: white; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno */
+  width: 300px; /* Ancho fijo para cada beneficio */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.beneficio h3 {
+  font-size: 20px; /* Tamaño del título del beneficio */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+.beneficio p {
+  font-size: 16px; /* Tamaño del texto del beneficio */
+  line-height: 1.5; /* Altura de línea para mejor legibilidad */
+}
+.beneficio img {
+  width: 100%; /* Ancho completo del contenedor */ 
+  height: auto; /* Mantiene la proporción */
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+.conoce-mas{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+.conoce-mas h2{
+  font-size: 30px;
+}
+.conoce-mas p{
+  font-size: 20px;
+  text-align: center;
+  max-width: 600px; /* Limita el ancho del párrafo */
+}
+.conoce-mas a {
+  text-decoration: none; /* Sin subrayado */
+  color: white; /* Color del texto */
+}
+.conoce-mas a:hover {
+  color: orange; /* Cambio de color al pasar el mouse */
+}
+.conoce-mas button {
+  padding: 10px 20px; /* Espaciado interno del botón */
+  background-color: #aa0303; /* Color de fondo del botón */ 
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+.conoce-mas button:hover {
+  background-color: #003e91; /* Color más oscuro al pasar el mouse */
+}
+.conoce-mas button:active {
+  transform: scale(0.98); /* Ligeramente más pequeño al presionar */
+  outline: none; /* Quita borde por defecto del navegador */    
+  box-shadow: none; /* Previene resplandor en algunos navegadores */
 }
