@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "html-css",
   "version": "1.0.0",
@@ -7,33 +6,10 @@
   "scripts": {
     "start": "serve"
   },
-  "keywords": [
-    "html",
-    "css"
-  ],
+  "keywords": ["html", "css"],
   "author": "Ives van Hoorne",
   "license": "MIT",
   "devDependencies": {
     "serve": "11.2.0"
   }
 }
-=======
-{
-  "name": "html-css",
-  "version": "1.0.0",
-  "description": "A template for HTML and CSS",
-  "main": "index.html",
-  "scripts": {
-    "start": "serve"
-  },
-  "keywords": [
-    "html",
-    "css"
-  ],
-  "author": "Ives van Hoorne",
-  "license": "MIT",
-  "devDependencies": {
-    "serve": "11.2.0"
-  }
-}
->>>>>>> e90d064bbb578453e1981eeb6ee678e92f3780d3

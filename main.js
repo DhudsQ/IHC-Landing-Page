@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Selecciona el botón de hamburguesa
 const btn = document.querySelector(".menu-toggle");
 
@@ -14,20 +13,51 @@ btn.addEventListener("click", () => {
   // (opcional) También puedes alternar una clase en el botón si quieres cambiar su apariencia
   // btn.classList.toggle("open");
 });
-=======
-// Selecciona el botón de hamburguesa
-const btn = document.querySelector(".menu-toggle");
 
-// Selecciona el menú horizontal
-const menu = document.querySelector(".menu-horizontal");
+// Evento al enviar el formulario de contacto
+document
+  .getElementById("formularioContacto")
+  .addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita el envío real del formulario
 
-// Al hacer clic en el botón de hamburguesa
-btn.addEventListener("click", () => {
-  // Alterna (agrega o quita) la clase "active" en el menú
-  // Esto hace que se muestre o se oculte
-  menu.classList.toggle("active");
+    // Muestra el mensaje de confirmación
+    const mensaje = document.getElementById("mensajeEnviado");
+    mensaje.style.display = "block";
 
-  // (opcional) También puedes alternar una clase en el botón si quieres cambiar su apariencia
-  // btn.classList.toggle("open");
+    // Opcional: limpiar el formulario
+    this.reset();
+
+    // Ocultar mensaje después de 5 segundos
+    setTimeout(() => {
+      mensaje.style.display = "none";
+    }, 5000);
+  });
+
+const form = document.querySelector(".formularioContacto");
+form.addEventListener("submit", (event) => {
+  const fname = form.elements["nombres"].value;
+  const flastname = form.elements["apellidos"].value;
+  const femail = form.elements["email"].value;
+  const fphone = form.elements["telefono"].value;
+
+  if (!fname || !flastname || !femail || !fphone) {
+    event.preventDefault();
+    alert("Por favor, complete todos los campos del formulario");
+  } else if (!validateEmail(femail)) {
+    event.preventDefault();
+    alert("Por favor, ingrese un correo valido");
+  } else {
+    const confirmation = confirm(
+      "Esta a punto de enviar el formulario, ¿Desea Continuar?"
+    );
+    if (!confirmation) {
+      event.preventDefault();
+    }
+  }
 });
->>>>>>> e90d064bbb578453e1981eeb6ee678e92f3780d3
+
+//CREAR FUNCION validateEmail(femail)
+function validateEmail(femail) {
+  const re = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z]/;
+  return re.test(String(femail).toLowerCase());
+}
