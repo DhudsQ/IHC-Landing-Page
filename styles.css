@@ -11,6 +11,68 @@ body {
   font-family: "Segoe UI", sans-serif; /* Fuente base legible y moderna */
 }
 
+.miembros {
+  display: flex; /* Muestra los miembros en fila */
+  flex-wrap: wrap; /* Permite que se ajusten en varias filas */
+  justify-content: center; /* Centra los miembros horizontalmente */
+  gap: 20px; /* Espacio entre los miembros */
+  padding: 20px; /* Espacio interno general */
+  background-color: #f1f1f1;
+}
+.miembros-container {
+  display: flex; /* Muestra los miembros en fila */
+  flex-wrap: wrap; /* Permite que se ajusten en varias filas */
+  justify-content: center; /* Centra los miembros horizontalmente */
+  gap: 20px; /* Espacio entre los miembros */
+  padding: 20px; /* Espacio interno general */
+}
+.miembro {
+  background-color: white; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno */  
+  width: 300px; /* Ancho fijo para cada miembro */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  text-align: center; /* Centra el texto dentro del miembro */
+}   
+.miembro img {
+  width: 100%;
+  height: 300px; /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Rellena el área recortando la imagen si es necesario */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: #555 2px solid; /* Borde gris alrededor de la imagen */
+
+}
+.miembro h3 {
+  font-size: 20px; /* Tamaño del nombre del miembro */
+  margin-bottom: 10px; /* Espacio debajo del nombre */
+}
+.miembro p {
+  font-size: 16px; /* Tamaño del texto de la descripción */
+  line-height: 1.5; /* Altura de línea para mejor legibilidad */
+  color: #555; /* Color gris para el texto */
+}
+
+.proposito{
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: #f1f1f1;
+}
+.proposito h2{
+  font-size: 30px;
+}
+.proposito p{
+  font-size: 20px;
+  text-align: center;
+  max-width: 600px; /* Limita el ancho del párrafo */ 
+  line-height: 1.6; /* Mejora la legibilidad */
+}
+
 /* CABECERA Y MENÚ SUPERIOR */
 .top-header {
   background-color: #aa0303;
@@ -617,7 +679,7 @@ button[type="submit"]:hover {
   cursor: pointer; /* Cambia el cursor al pasar por encima */
 }
 .conoce-mas button:hover {
-  background-color: #003e91; /* Color más oscuro al pasar el mouse */
+  background-color: black; /* Color más oscuro al pasar el mouse */
 }
 .conoce-mas button:active {
   transform: scale(0.98); /* Ligeramente más pequeño al presionar */
