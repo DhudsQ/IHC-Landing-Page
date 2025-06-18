@@ -1,6 +1,6 @@
 // Selecciona el botón de hamburguesa
 const btn = document.querySelector(".menu-toggle");
-//
+
 // Selecciona el menú horizontal
 const menu = document.querySelector(".menu-horizontal");
 
@@ -15,7 +15,7 @@ btn.addEventListener("click", () => {
 });
 
 // Evento al enviar el formulario de contacto
-document
+/*document
   .getElementById("formularioContacto")
   .addEventListener("submit", function (e) {
     e.preventDefault(); // Evita el envío real del formulario
@@ -25,15 +25,17 @@ document
     mensaje.style.display = "block";
 
     // Opcional: limpiar el formulario
-    this.reset();
+    //this.reset();
 
     // Ocultar mensaje después de 5 segundos
     setTimeout(() => {
       mensaje.style.display = "none";
     }, 5000);
   });
+*/
+// VALIDACION DE FORMULARIO
+const form = document.querySelector('form[name="frm"]');
 
-const form = document.querySelector(".formularioContacto");
 form.addEventListener("submit", (event) => {
   const fname = form.elements["nombres"].value;
   const flastname = form.elements["apellidos"].value;
@@ -45,19 +47,26 @@ form.addEventListener("submit", (event) => {
     alert("Por favor, complete todos los campos del formulario");
   } else if (!validateEmail(femail)) {
     event.preventDefault();
-    alert("Por favor, ingrese un correo valido");
+    alert("Por favor, ingrese un correo válido");
   } else {
     const confirmation = confirm(
-      "Esta a punto de enviar el formulario, ¿Desea Continuar?"
+      "Está a punto de enviar el formulario, ¿Desea continuar?"
     );
     if (!confirmation) {
       event.preventDefault();
+    } else {
+      event.preventDefault();
+      const mensaje = document.getElementById("mensajeEnviado");
+      mensaje.style.display = "block";
+      setTimeout(() => {
+        mensaje.style.display = "none";
+      }, 5000);
+      form.reset();
     }
   }
 });
-
 //CREAR FUNCION validateEmail(femail)
 function validateEmail(femail) {
-  const re = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z]/;
-  return re.test(String(femail).toLowerCase());
+  const re = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+  return re.test(femail);
 }
